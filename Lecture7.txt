@@ -1,0 +1,64 @@
+Que1: Sorting
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int a=0,b=0,c=0;
+        for(int i=0; i<nums.size();i++){
+            if(nums[i]==0){
+                a++;
+            }
+            if(nums[i]==1){
+                b++;
+            }
+            if(nums[i]==2){
+                c++;
+            }
+        }
+        for(int i=0; i<a; i++){
+            nums[i]=0;
+        }
+        for(int i=a; i<a+b; i++){
+            nums[i]=1;
+        }
+        for(int i=a+b; i<a+b+c; i++){
+            nums[i]=2;
+        }
+        
+    }
+};
+
+
+Que2: Set Matrix Zeroes
+
+class Solution {
+    public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        int m = matrix[0].size();
+
+        vector<int> row(n, 0); 
+        vector<int> col(m, 0); 
+
+        for(int i = 0; i < n; i++) { // TC: O(n*m)
+            for(int j = 0; j < m; j++) {
+                if(matrix[i][j] == 0) {
+                    row[i] = 1;
+                    col[j] = 1;
+                }
+            }
+        }
+
+        // set all row and col as 0
+        for(int i = 0; i < n; i++) { // TC: O(n*m)
+            for(int j = 0; j < m; j++) {
+                if(row[i] || col[j]) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+};
+
+Que 3:
+Not done!
